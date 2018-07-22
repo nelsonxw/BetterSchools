@@ -939,7 +939,8 @@ Pandas, Numpy, Matplotlib
 	df_performance = df_performance.dropna()
 	df_performance.shape
 	```
-    	(7761, 5)
+    	(7761, 5)  
+	
 	```python
 	# save data to csv file
 	df_performance.to_csv('campus_performance_%s.csv' %year,index=False)
