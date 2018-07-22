@@ -29,16 +29,16 @@ Pandas, Numpy, Matplotlib
     + Validated data and dropped any school that has data masked by TEA  
     #### Code Snippets:  
     ```python
-# import dependencies
-import pandas as pd
-import numpy as np
-```
+	# import dependencies
+	import pandas as pd
+	import numpy as np
+	```
 
 
-```python
-# define which school year to extract performance data
-year = '2016'
-```
+	```python
+	# define which school year to extract performance data
+	year = '2016'
+	```
 
 
 ```python
