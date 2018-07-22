@@ -200,16 +200,20 @@ Pandas, Numpy, Matplotlib
 	# do initial data cleansing by replacing '.' or '-1' (masked data) with NaN
 	df_campus.replace('-1',np.nan,inplace=True)
 	df_campus.replace('.',np.nan,inplace=True)
-	```
+	```  
+	
 	```python
 	# quick data exploration shows it is a big and wide table
 	df_campus.shape
-	```
-    	(8757, 1513)
+	```  
+	
+    	(8757, 1513)  
+	
 	```python
 	# the column headers are coded and not user friendly for further exploration
 	df_campus.head()
-	```
+	```  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -362,7 +366,8 @@ Pandas, Numpy, Matplotlib
 	  </tbody>
 	</table>
 	<p>5 rows × 1513 columns</p>
-	</div>
+	</div>  
+	
 	```python
 	# read 3 indiviudal header mapping tables and combine them into one mapping table
 	df_header1 = pd.read_csv('header_mapping_1_%s.csv' %year)
@@ -370,7 +375,8 @@ Pandas, Numpy, Matplotlib
 	df_header3 = pd.read_csv('header_mapping_3_%s.csv' %year)
 	df_header = pd.concat([df_header1,df_header2,df_header3],ignore_index=True)
 	df_header.head()
-	```
+	```  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -408,7 +414,8 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# create a dictionary for the column header mapping table, and use it to rename the column headers
 	header_dict = {}
@@ -416,7 +423,8 @@ Pandas, Numpy, Matplotlib
 	    header_dict[df_header.loc[i,'NAME']] = df_header.loc[i,'LABEL']    
 	df_campus = df_campus.rename(columns = header_dict)
 	df_campus.head()
-	```
+	```  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -569,14 +577,17 @@ Pandas, Numpy, Matplotlib
 	  </tbody>
 	</table>
 	<p>5 rows × 1513 columns</p>
-	</div>
+	</div>  
+	
 	```python
 	# use melt function to transform dataset from wide table to long table so that it will be easier to set filter on the fields
 	df_campus = df_campus.melt(id_vars='CAMPUS', var_name='Category', value_name='Value')
 	print(df_campus.shape)
 	df_campus.head()
-	```
-    	(13240584, 3)
+	```  
+	
+    	(13240584, 3)  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -620,24 +631,29 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# create a function 'contain' to do partial string search (case insensitive) which is used in filtering data fields
 	def contain(string,target):
 	    return string.lower() in target.lower()
-	```
+	```  
+	
 	```python
 	# select data for the year requested
 	df_campus = df_campus[df_campus['Category'].apply(lambda x: contain(year,x))]
-	```
+	```  
+	
 	```python
 	# get the total student count by campus and remove NaN
 	df_student_count = df_campus[df_campus['Category'].apply(
 	    lambda x: contain('All Students All Tests Performance Denominator',x))].dropna()
 	print(df_student_count.shape)
 	df_student_count.head()
-	```
-    	(7990, 3)
+	```  
+	
+    	(7990, 3)  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -681,15 +697,18 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# get the student count for those passing the exam by campus and remove NaN
 	df_pass_count = df_campus[df_campus['Category'].apply(
 	    lambda x: contain('All Students All Tests Numerator',x))].dropna()
 	print(df_pass_count.shape)
 	df_pass_count.head()
-	```
-    	(7990, 3)
+	```  
+	
+    	(7990, 3)  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -733,15 +752,18 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# get the student pass rate by campus and remove NaN
 	df_pass_rate = df_campus[df_campus['Category'].apply(
 	    lambda x: contain('All Students All Tests Rate',x))].dropna()
 	print(df_pass_rate.shape)
 	df_pass_rate.head()
-	```
-    	(7761, 3)
+	```  
+	
+    	(7761, 3)  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -785,14 +807,17 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# merge dataframes to include all data elements
 	df_performance = df_student_count.merge(df_pass_count,on='CAMPUS',how='outer').merge(df_pass_rate,on='CAMPUS',how='outer')
 	print(df_performance.shape)
 	df_performance.head()
-	```
-    	(7990, 7)
+	```  
+	
+    	(7990, 7)  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -860,7 +885,8 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# select columns and rename column headers, add a column for the school year requested
 	df_performance = df_performance[['CAMPUS','Value_x','Value_y','Value']].rename(
@@ -868,8 +894,10 @@ Pandas, Numpy, Matplotlib
 	df_performance['year'] = year
 	print(df_performance.shape)
 	df_performance.head()
-	```
-    	(7990, 5)
+	```  
+	
+    	(7990, 5)  
+	
 	<div>
 	<table border="1" class="dataframe">
 	  <thead>
@@ -925,20 +953,24 @@ Pandas, Numpy, Matplotlib
 	    </tr>
 	  </tbody>
 	</table>
-	</div>
+	</div>  
+	
 	```python
 	# note there are 7990 schools but only 7761 schools have reported with pass rate.
 	# the delta represents the schools with small number of students and pass rate data are masked by TEA
 	print(df_performance['campus_id'].count())
 	print(df_performance['pct_pass'].count())
-	```
+	```  
+	
     	7990
-    	7761
+    	7761  
+	
 	```python
 	# remove schools without pass rate
 	df_performance = df_performance.dropna()
 	df_performance.shape
-	```
+	```  
+	
     	(7761, 5)  
 	
 	```python
