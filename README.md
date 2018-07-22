@@ -980,8 +980,11 @@ Pandas, Numpy, Matplotlib
 3. Saved step 2 as extract_performance function to process data for school year 2013 to 2016.
 4. Created functions to extract student poverty data, campus georgraphic location data and teachers compensation data.
 5. Used Matplotlib pylot to plot bubble charts, and revealed the relationships between student performance and above-mentioned factors.
-6. Based on the observation, it shows a strong correlation between student performance and % of students in poverty.
-[Link to codes](/final/betterschools_start.ipynb)
-[Link to presentations](/final/betterschools_start.ipynb)
+6. Based on the observation, it shows a strong correlation between student performance and % of students in poverty.  
+
+[Link to codes](/final/betterschools_start.ipynb)  
+
+[Link to presentations](/final/betterschools_start.ipynb)  
+
 <img src="/images/Capture_1.PNG" width="800">  
 	
