@@ -1,4 +1,4 @@
-# TEA student data analysis
+# TEA Student Data Analysis
 
 ### TEAM MEMBERS
 
