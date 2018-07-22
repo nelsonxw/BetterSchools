@@ -1,6 +1,6 @@
 # TEA Student Data Analysis
 
-### TEAM MEMBERS
+### Team Members:
 
 * Aditi Sharma
 * Christopher Lucas
@@ -8,7 +8,7 @@
 * Bill Wilson
 * Nelson Wang
 
-### PROJECT DESCRIPTION/OUTLINE
+### Objectives:
 Our project will analyze education data to discover relationships that lead to conclusions that will help inform curriculum design and classroom instructions.
 
 ### RESEARCH QUESTIONS TO ANSWER
