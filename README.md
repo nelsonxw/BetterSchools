@@ -1,8 +1,4 @@
-## BetterSchools
-
-## TEAM #6 PROJECT-ONE
-
-### PROJECT: TEA STUDENT DATA ANALYSIS
+# TEA student data analysis
 
 ### TEAM MEMBERS
 
