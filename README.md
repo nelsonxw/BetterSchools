@@ -1,4 +1,4 @@
-# TEA Student Performance Data Analysis
+# TEA Student Performance Data Mining and Analysis
 
 ### Team Members:
 
